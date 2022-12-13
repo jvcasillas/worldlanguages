@@ -1,8 +1,8 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/jvcasillas/worldlanguages/workflows/R-CMD-check/badge.svg)](https://github.com/jvcasillas/worldlanguages/actions)  
 [![CodeFactor](https://www.codefactor.io/repository/github/jvcasillas/worldlanguages/badge)](https://www.codefactor.io/repository/github/jvcasillas/worldlanguages)
+[![R-CMD-check](https://github.com/jvcasillas/worldlanguages/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jvcasillas/worldlanguages/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ## worldlanguages
