@@ -1,0 +1,15 @@
+#' A data set containing information about 599 languages.
+#'
+#' A long-form data set scraped from wikipedia containing an information about
+#' 599 languages. The data were scraped from:
+#' https://en.wikipedia.org/wiki/List_of_language_names
+#'
+#' @format A data frame with 599 rows and 4 columns:
+#' \describe{
+#'   \item{language_en}{Name of the language (in English)}
+#'   \item{language}{Name of language (in native language, characters)}
+#'   \item{notes}{Additional information regarding official status, where spoken/used, etc.}
+#'   \item{is_extinct}{Logical vector (TRUE = extinct)}
+#' }
+#' @source \url{https://github.com/jvcasillas/worldlanguages}
+"language_names"

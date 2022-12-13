@@ -1,0 +1,21 @@
+#' A data set containing counts of the number of languages spoken in 242 countries.
+#'
+#' A long-form data set scraped from wikipedia containing an approximate number
+#' of languages spoken in 242 countries. The data set also contains data on
+#' immigrant languages. The table was scraped from:
+#' https://en.wikipedia.org/wiki/Number_of_languages_by_country
+#'
+#' @format A data frame with 242 rows and 9 columns:
+#' \describe{
+#'   \item{rank}{A numeric ranking based on number of languages spoken (lower rank = more languages)}
+#'   \item{country}{Name of the country}
+#'   \item{nol_established}{Number of established (i.e., non-immigrant) languages}
+#'   \item{nol_immigrant}{Number of immigrant languages}
+#'   \item{nol_total}{Total count of languages spoken}
+#'   \item{nol_percent}{Percentage of total number of languages relative to the world, including both established and immigrant languages}
+#'   \item{nos_total}{Number of total speakers}
+#'   \item{nos_mean}{Mean number of total speakers per language}
+#'   \item{nos_median}{Median number of total speakers per language}
+#' }
+#' @source \url{https://github.com/jvcasillas/worldlanguages}
+"n_languages_by_country"

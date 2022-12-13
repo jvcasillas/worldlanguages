@@ -1,0 +1,22 @@
+#' A data set containing counts of the number of countries in which certain
+#' languages are recognized as (co-)official.
+#'
+#' A long-form data set scraped from wikipedia containing an approximate number
+#' of countries in which 36 of the world's languages are recognized as being
+#' (co-)official. The data set also contains counts by continent and the
+#' country names. The table was scraped from:
+#' https://en.wikipedia.org/wiki/List_of_languages_by_the_number_of_countries_in_which_they_are_recognized_as_an_official_language
+#'
+#' @format A data frame with 36 rows and 8 columns:
+#' \describe{
+#'   \item{language}{Language name in English}
+#'   \item{world}{Count of contries in which language is (co-)official in the world}
+#'   \item{africa}{Count of contries in which language is (co-)official in Africa}
+#'   \item{americas}{Count of contries in which language is (co-)official in the Americas}
+#'   \item{asia}{Count of contries in which language is (co-)official in Asia}
+#'   \item{europe}{Count of contries in which language is (co-)official in Europe}
+#'   \item{oceania}{Count of contries in which language is (co-)official in Oceania}
+#'   \item{countries}{Vector of country names (separated by comma)}
+#' }
+#' @source \url{https://github.com/jvcasillas/worldlanguages}
+"n_countries_by_language"

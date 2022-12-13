@@ -1,0 +1,214 @@
+---
+output: github_document
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| warning: false
+#| message: false
+library("knitr")
+library("worldlanguages")
+library("tidyverse")
+
+opts_chunk$set(fig.path="man/figures/")
+
+```
+
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/jvcasillas/worldlanguages/workflows/R-CMD-check/badge.svg)](https://github.com/jvcasillas/worldlanguages/actions)  
+[![CodeFactor](https://www.codefactor.io/repository/github/jvcasillas/worldlanguages/badge)](https://www.codefactor.io/repository/github/jvcasillas/worldlanguages)
+<!-- badges: end -->
+
+## worldlanguages 
+<!-- <img src='https://raw.githubusercontent.com/jvcasillas/hex_stickers/master/stickers/worldlanguages.png' align='right' width='275px'/> -->
+
+An R Package of Data Sets About the World's Languages.
+
+Last update: `r Sys.Date()`
+
+### Overview
+
+The worldlanguages package provides a series of data sets with information about the languages of the world. 
+All the data is freely available and scrapped from the internet.
+
+### Installation
+
+You can install the development version from GitHub with:
+
+```
+remotes::install_github("jvcasillas/worldlanguages")
+```
+
+### Datasets
+
+```{r}
+#| label: toc
+#| echo: false
+#| results: 'asis'
+#
+# Automate TOC
+#
+# Get list of folders in current directory
+datasets <- dir(path = "./data", pattern = "*.rda")
+
+# remove .rda
+list_elements <- gsub('.rda', '', datasets)
+
+# Use dataframe names for link references
+link_names <- paste0('[', list_elements, ']')
+#
+# Get section ref for link
+#
+# initialize vector
+link_ref <- vector(mode = 'character', length = length(link_names))
+
+# store assignment number
+for (element in 1:length(list_elements)) {
+
+  link_ref[element] <- paste0("(#", list_elements[element], ")")
+
+}
+
+# Combine everything into an unordered list
+cat(paste0('- ', link_names, link_ref, '\n'))
+```
+
+#### `extinct_languages`
+
+- A long-form data set scraped from wikipedia containing an information about 642 extinct languages. 
+- Information on the data, language family, region, and terminal speakers is provided if available. 
+- The table was curated by scraping multiple tables from:  
+https://en.wikipedia.org/wiki/List_of_languages_by_time_of_extinction
+
+```{r}
+#| label: extinct-languages
+#| out.width: "100%"
+#| fig.retina: 2
+#| echo: false
+glimpse(extinct_languages)
+
+extinct_languages %>% 
+  group_by(century) %>% 
+  count() %>% 
+  mutate(century = as.factor(century), 
+    century = fct_relevel(century, 
+    "Unknown", "2nd mill. BC", "7th BC", "6th BC", "5th BC", "4th BC", 
+    "3rd BC", "2nd BC", "1st BC", "1st", "2nd", "3rd", "4th", "5th", "6th", 
+    "7th", "8th", "9th", "10th", "11th and 12th", "13th", "14th", "15th", 
+    "16th", "17th", "18th", "19th", "20th", "21st")) %>%
+  ggplot(., aes(x = n, y = century)) + 
+    geom_segment(aes(x = 0, xend = n, yend = century), linewidth = 1) + 
+    geom_point(size = 2, pch = 21, fill = "white") + 
+    labs(y = "Century", x = "Number of extinct languages") + 
+    ds4ling::ds4ling_bw_theme()
+```
+
+#### `language_names`
+
+- A long-form data set scraped from wikipedia containing an information about 599 languages. 
+- The data were scraped from:  https://en.wikipedia.org/wiki/List_of_language_names
+
+```{r}
+#| label: language-names
+#| echo: false
+glimpse(language_names)
+```
+
+#### `languages_by_country`
+
+- A long-form data set scraped from wikipedia containing a list of the languages spoken in 212 different countries. 
+- The data set distinguishes between official, regional, minority, and national status, as well as widely spoken languages.
+- The data were scraped from:  https://en.wikipedia.org/wiki/List_of_official_languages_by_country_and_territory
+
+```{r}
+#| label: languages-by-country
+#| echo: false
+glimpse(languages_by_country)
+```
+
+#### `n_countries_by_language`
+
+- A long-form data set scraped from wikipedia containing an approximate number of countries in which 36 of the world's languages are recognized as being (co-)official. 
+- The data set also contains counts by continent and the country names. 
+- The table was scraped from:  https://en.wikipedia.org/wiki/List_of_languages_by_the_number_of_countries_in_which_they_are_recognized_as_an_official_language
+
+```{r}
+#| label: n-countries-by-language
+#| out.width: "100%"
+#| fig.retina: 2
+#| echo: false
+glimpse(n_countries_by_language)
+
+n_countries_by_language %>% 
+  arrange(desc(world)) %>% 
+  slice(1:20) %>% 
+  mutate(language = fct_reorder(language, world, max)) %>% 
+  ggplot(., aes(x = world, y = language)) + 
+    geom_segment(aes(x = 0, xend = world, yend = language), linewidth = 1) + 
+    geom_point(size = 2, pch = 21, fill = "white") + 
+    labs(y = "Language", x = "N", 
+      title = "20 Most common (co-)official languages") + 
+    ds4ling::ds4ling_bw_theme()
+```
+
+
+#### `n_languages_by_country`
+
+- A long-form data set scraped from wikipedia containing an approximate number of languages spoken in 242 countries. 
+- The data set also contains data on immigrant languages. 
+- The table was scraped from:  https://en.wikipedia.org/wiki/Number_of_languages_by_country
+
+```{r}
+#| label: n-languages-by-country
+#| out.width: "100%"
+#| fig.retina: 2
+#| echo: false
+#| warning: false
+glimpse(n_languages_by_country)
+
+n_languages_by_country %>% 
+  ggplot(., aes(x = log10(nol_total), y = log10(nos_total))) + 
+    geom_text(aes(label = country, size = nol_percent), show.legend = F) + 
+    geom_smooth(method = "gam", fullrange = T) + 
+    coord_cartesian(xlim = c(0, 3.25)) + 
+    labs(y = expression(N~speakers~(log[10])), 
+         x = expression(N~languages~(log[10])), 
+      caption = "Text size is proportional to number\nof languages as % of total world languages") +
+    ds4ling::ds4ling_bw_theme()
+```
+
+#### `n_words_by_language`
+
+- A long-form data set scraped from wikipedia containing an approximate number of words contained in dictionaries from 126 languages. 
+- The table was scraped from:  https://en.wikipedia.org/wiki/List_of_dictionaries_by_number_of_words
+
+```{r}
+#| label: n-words-by-language
+#| echo: false
+glimpse(n_words_by_language)
+```
+
+#### `native_speakers`
+
+- A long-form data set scraped from wikipedia containing an approximate number of native speakers for 27 of the world's languages. 
+- The data set also contains information regarding the language family, language branch, and other notes. 
+- The table was scraped from:  https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
+
+```{r}
+#| label: native-speakers
+#| echo: false
+glimpse(native_speakers)
+```
+
+#### `total_speakers`
+
+- A long-form data set scraped from wikipedia containing the number of L1 and L2 speakers of 45 languages. 
+- The data set also contains information regarding the language family, language branch, and other notes. 
+- The table was scraped from:  https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers
+
+```{r}
+#| label: total-speakers
+#| echo: false
+glimpse(total_speakers)
+```

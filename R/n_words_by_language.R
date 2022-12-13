@@ -1,0 +1,17 @@
+#' A data set containing counts of the number of words for 126 languages.
+#'
+#' A long-form data set scraped from wikipedia containing an approximate number
+#' of words contained in dictionaries from 126 languages. The table was scraped
+#' from:
+#' https://en.wikipedia.org/wiki/List_of_dictionaries_by_number_of_words
+#'
+#' @format A data frame with 126 rows and 5 columns:
+#' \describe{
+#'   \item{language}{Name of the language (in English)}
+#'   \item{n_headwords}{Number of headwords in dictionary}
+#'   \item{n_definitions}{Number of definitions}
+#'   \item{dictionary}{Official name of the dictionary queried}
+#'   \item{notes}{Misc. notes}
+#' }
+#' @source \url{https://github.com/jvcasillas/worldlanguages}
+"n_words_by_language"
