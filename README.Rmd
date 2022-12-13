@@ -12,7 +12,6 @@ library("worldlanguages")
 library("tidyverse")
 
 opts_chunk$set(fig.path="man/figures/")
-
 ```
 
 <!-- badges: start -->
