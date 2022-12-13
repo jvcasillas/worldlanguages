@@ -1,12 +1,13 @@
 
-<!--
-badges: start
+<!-- badges: start -->
+
 [![R-CMD-check](https://github.com/jvcasillas/worldlanguages/workflows/R-CMD-check/badge.svg)](https://github.com/jvcasillas/worldlanguages/actions)  
 [![CodeFactor](https://www.codefactor.io/repository/github/jvcasillas/worldlanguages/badge)](https://www.codefactor.io/repository/github/jvcasillas/worldlanguages)
-badges: end 
--->
+<!-- badges: end -->
 
-## worldlanguages <img src='https://raw.githubusercontent.com/jvcasillas/hex_stickers/master/stickers/worldlanguages.png' align='right' width='275px'/>
+## worldlanguages
+
+<!-- <img src='https://raw.githubusercontent.com/jvcasillas/hex_stickers/master/stickers/worldlanguages.png' align='right' width='275px'/> -->
 
 An R Package of Data Sets About the World’s Languages.
 
