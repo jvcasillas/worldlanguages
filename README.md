@@ -61,8 +61,7 @@ You can install the development version from GitHub with:
 
 #### `language_names`
 
-- A long-form data set scraped from wikipedia containing an information
-  about 599 languages.
+- A long-form data set scraped from wikipedia containing 599 languages.
 - The data were scraped from:
   <https://en.wikipedia.org/wiki/List_of_language_names>
 
