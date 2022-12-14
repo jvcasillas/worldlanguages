@@ -29,7 +29,7 @@ Last update: `r Sys.Date()`
 ### Overview
 
 The worldlanguages package provides a series of data sets with information about the languages of the world. 
-All the data is freely available and scrapped from the internet.
+All the data is freely available and scraped from the internet.
 
 ### Installation
 

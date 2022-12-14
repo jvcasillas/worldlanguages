@@ -11,13 +11,13 @@
 
 An R Package of Data Sets About the World’s Languages.
 
-Last update: 2022-12-13
+Last update: 2022-12-14
 
 ### Overview
 
 The worldlanguages package provides a series of data sets with
 information about the languages of the world. All the data is freely
-available and scrapped from the internet.
+available and scraped from the internet.
 
 ### Installation
 
