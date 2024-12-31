@@ -7,11 +7,11 @@
 
 ## worldlanguages
 
-<!-- <img src='https://raw.githubusercontent.com/jvcasillas/hex_stickers/master/stickers/worldlanguages.png' align='right' width='275px'/> -->
+<img src='https://raw.githubusercontent.com/jvcasillas/hex_stickers/master/stickers/worldlanguages.png' align='right' width='275px'/>
 
 An R Package of Data Sets About the World’s Languages.
 
-Last update: 2022-12-14
+Last update: 2024-12-31
 
 ### Overview
 
@@ -158,7 +158,7 @@ You can install the development version from GitHub with:
     ## $ language      <chr> "Korean", "Portuguese", "Finnish", "Tamil", "Kurdish", "…
     ## $ n_headwords   <int> 1100373, 818000, 800000, 784553, 744139, 600000, 578707,…
     ## $ n_definitions <int> NA, NA, NA, NA, NA, NA, 1317179, NA, NA, NA, NA, NA, NA,…
-    ## $ dictionary    <chr> "우리말샘 (Woori Mal Saem, 2017)", "Aulete Digital", "Re…
+    ## $ dictionary    <chr> "우리말샘 (Woori Mal Saem, 2017)", "Aulete Digital", "RedFox…
     ## $ notes         <chr> "Online open dictionary including dialects of South and …
 
 #### `native_speakers`

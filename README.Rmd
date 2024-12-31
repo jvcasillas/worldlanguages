@@ -20,7 +20,7 @@ opts_chunk$set(fig.path="man/figures/")
 <!-- badges: end -->
 
 ## worldlanguages 
-<!-- <img src='https://raw.githubusercontent.com/jvcasillas/hex_stickers/master/stickers/worldlanguages.png' align='right' width='275px'/> -->
+<img src='https://raw.githubusercontent.com/jvcasillas/hex_stickers/master/stickers/worldlanguages.png' align='right' width='275px'/>
 
 An R Package of Data Sets About the World's Languages.
 
